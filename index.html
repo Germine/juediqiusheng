@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝地求生</title>
+	<style>
+		*{
+			margin: 0;
+		}
+		body{
+			position: relative;
+			background: #000;
+			padding-top: 0;
+			overflow: hidden;
+			height: 100%;
+			opacity: 1;
+		}
+		a{
+			text-decoration: none;
+		}
+		div{
+			display: block;
+		}
+		video{
+			width: 100%;
+			display: block;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.top{
+			position: fixed;
+			min-width: 1440px;
+			height: 88px;
+			width: 100%;
+			overflow: hidden;
+			background: url(img/bg_top.png) no-repeat 50% 0;
+			z-index: 5;
+		}
+		.logo{
+			width: 129px;
+			height: 66px;
+			display: block;
+			text-indent: -999em;
+			margin-top: 5px;
+			margin-left: 1px;
+			float: left;
+			background-position: 0 0;
+			background: url(img/logo.png) no-repeat;
+		}
+		.top_con{
+			position: relative;
+			width: 1205px;
+			margin: 0 auto;
+		}
+		.top_con ul{
+			float: left;
+			padding: 27px 0 0 46px;
+			margin: 0;
+		}
+		.clear_fix:after{
+			content: "";
+			clear: both;
+			height: 0;
+			visibility: hidden;
+			display: block;
+		}
+		.top_con ul li{
+			float: left;
+			margin: 0 24px;
+		}
+		.top_con ul li .hot{
+			color: #e69800;
+		}
+		li{
+			display:list-item;
+		}
+		.top_con ul li a{
+			color: #ccc;
+			font-weight: bold;
+			font-size: 14px;
+		}
+		.btn_enter{
+			position: absolute;
+			top: 19px;
+			right: 0;
+			display: block;
+			width: 142px;
+			height: 40px;
+			font-size: 14px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 40px;
+			color: #fff;
+			background: #e69800;
+			text-shadow: 1px 1px 1px #b27601;
+		}
+
+		.imgbox{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 50%;
+			z-index: 1;
+		}
+		.container{
+			transform: translate(0,0); 
+			transition: all 1s;
+		}
+		.first_box , .second_box , .third_box ,.forth_box{
+			position: relative;
+		}
+		.logobox{
+			position: absolute;
+			height: 60%;
+			width: 60%;
+			left: 25%;
+			bottom: 5%;
+			background: url(img/logo_b.png) no-repeat;
+			-webkit-background-size: 80%;
+			background-size: 80%;
+		}
+		.sprite{
+			background: url('img/sprite.png');
+			background-repeat: no-repeat;
+		}
+		.first_bg{
+			position: absolute;
+			height: 205px;
+    		width: 541px;
+			left: 5%;
+			top: 30%;
+			background-position: -246px -217px;
+			z-index: 1;
+		}
+		.second_bg{
+		    position: absolute;
+		    height: 130px;
+		    width: 520px;
+		    left: 15%;
+		    top: 30%;
+		    background-position: -459px -123px;
+		    z-index: 1;
+		    background-size: 150%;
+		}
+		.nav{
+			background: url(img/bg_nav.png) no-repeat;
+			background-size: 50%;
+			position: absolute;
+			left: 0;
+			top: 88px;
+			width: 50px;
+			height: 700px;    
+			z-index: 2;
+		}
+		.nav_content{
+			color: #fff
+		}
+		.nav_content li{
+			position: absolute; 
+			left: 33px;
+			width: 100px;
+			cursor: pointer;
+		}
+		.nav_content li:nth-child(1){
+			top: 24px;
+			color: rgb(223,148,8);
+		}
+		.nav_content li:nth-child(2){
+			top: 146px;
+		}
+		.nav_content li:nth-child(3){
+			top: 268px;
+		}
+		.nav_content li:nth-child(4){
+			top: 390px;
+		}
+		.nav_content li:hover{
+			color: rgb(223,148,8);
+		}
+	</style>
+</head>
+<body style="padding-top: 0px;overflow: hidden;height: 100%;opacity: 1;" class="fp-viewing-section2" >
+
+	<div class="top">
+		<div class="top_con">
+			<a href="" class="logo" title="绝地求生官方网站" >绝地求生官方网站</a>
+			<ul class="clearfix">
+				<li>
+					<a href="" title="官方首页">官方首页</a>
+				</li>
+				<li>
+					<a href="" title="绑定查询">绑定查询</a>
+				</li>
+				<li>
+					<a href="" title="国服预约" class="hot">国服预约</a>
+				</li>
+				<li>
+					<a href="" title="老兵绑定" class="hot">老兵绑定</a>
+				</li>
+				<li>
+					<a href="" title="游戏特色">游戏特色</a>
+				</li>
+				<li>
+					<a href="" title="社区APP">社区APP</a>
+				</li>
+				<li>
+					<a href="" title="网吧认证">网吧认证</a>
+				</li>
+			</ul>
+			<a href="" class="btn_enter" title="进入官网">进入官网</a>
+		</div>
+	</div>
+	
+	<div class="nav">
+		<ul class="nav_content">
+			<li onclick="changeTo(0)">N</li>
+			<li onclick="changeTo(1)">NE</li>
+			<li onclick="changeTo(2)">E</li>
+			<li onclick="changeTo(3)">SE</li>
+		</ul>
+	</div>
+
+	<div class="container">
+		<div class="first_box">
+			<video src="http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_5dad5415ceb249339a0bf9662bfd414e.f0.mp4?vkey=0A43CD29D882046850E84BF2F39C202DD2C783F472FAD99EFCA49DD5B9E80ED6607E4153A87B505AD9E60BA6CC2C53BF1631DB18C8AD19C77EA5E38669EAA0F92395310B3B11178C89D1542A1B21870AB499DC1F598A9DD9&sha=0" muted autoplay loop></video>	
+			<p class="logobox">
+				
+			</p>
+		</div>
+		
+		<div class="second_box">
+			<video src="http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_e48ffd8a30074766bfae4ba50cbbbce5.f0.mp4?vkey=1D28FE9D733BB3BD7212516B6021CE4F21FD5BBCD01A33C03A1DDB2766FB03D88966DB8741A5FD6AD22573567B776606166DCC9232F41B32EE419EC3BA1345740F4B57B0DAA17B5854FFEA67F59801C548593D7EA2ECF45A&sha=0" loop></video>
+			<p class="first_bg sprite">
+				
+			</p>
+		</div>
+
+		<div class="third_box">
+			<video src="http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_18cc6cba2ebb4635aa06d2020134d1be.f0.mp4?vkey=B35C29800A1FB3F3E95627C89A1387DAC00916D02E52A19E765DBA410DC428B4C082C7DD657540181FA2AB66F4E7665704C5F7607A33619F031FFE3851F986A5E5828FE68121E1A90E5529289C8D231E7D2F7AA3AF363A3C&sha=0" loop></video>
+			<p class="second_bg sprite">
+				
+			</p>
+		</div>
+
+		<div class="forth_box">
+			<video src="http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_e69987bb8934400eb786a159f45985ce.f0.mp4?vkey=A2C78661DBAEB142B5FE8F86F9973C0B26A37E334F12097F75BF9AB1F4F8921D23984909571310DC9544E400421C61CDF08538707F556C964A3720D4E0D96024F9B4AD1D89A6F6B23D33317454FDD11C44EEEAEE38422F20&sha=0" loop></video>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	//定义显示的是第几个视频
+	var index = 0; 
+	//定义盒子切换状态
+	var isChange = false;
+	//定义视频盒子
+	var video_boxs = document.querySelectorAll('.container > div');
+	//定义导航位置
+	var li_boxs = document.querySelectorAll('.nav_content > li');
+	//封装视频滚动事件
+	function viedoMove(step,num=0){
+		//所有视频暂停
+		video_boxs[index].querySelector('video').pause();
+		//还原所有导航位置
+		li_boxs[index].style.color = '#fff';
+		//方2：index  = ++index >= box_length ? box_length : index
+ 	 	if(step == ''){
+ 	 		index = num;
+ 	 	}else if (index != video_boxs.length-1 && step == 'Down') {
+			++index;
+ 	 	}else if(index != 0 && step == 'Up') {
+			--index;
+ 	 	}
+		var y = -780*index;
+		document.querySelector('.container').style.transform = 'translate(0,'+y+'px)';
+		//当前视频播放
+		video_boxs[index].querySelector('video').play();
+		//当前位置高亮
+		li_boxs[index].style.color = 'rgb(223,148,8)';
+		isChange = false;
+	}
+
+	//键盘事件监听
+  	
+   	function upDown(event){
+   		var step = '';
+ 	 	if (event.key == 'ArrowDown') {
+			step = 'Down';
+ 	 	}else if(event.key == 'ArrowUp') {
+			step = 'Up';
+ 	 	}
+		viedoMove(step);
+   	}
+   	window.addEventListener('keydown',upDown,true);
+
+   	//鼠标滚动事件
+   	function scroll(event){
+   		//浏览器兼容
+   		var e = event || window.event;
+   		var num = e.detail == 0? -e.wheelDelta : e.detail; //e.wheelDelta取值刚好相反
+
+   		var step = '';
+        if (num>0) { 
+            step = 'Down';
+        }
+        if (num < 0) { 
+            step = 'Up';
+        }
+        if (!isChange) {
+ 			// 如果没有切换盒子，那么就执行videoMove
+ 			setTimeout(function () {
+ 				viedoMove(step);
+ 			},200)
+ 			// 改变为正在切换
+ 			isChange = true;
+ 		}
+   	}
+   	//火狐
+   	if (document.addEventListener) { 
+   	  	document.addEventListener('DOMMouseScroll',scroll,false);
+   	 }
+   	// 其他浏览器
+	window.onmousewheel = document.onmousewheel = scroll;
+
+	//导航切换
+	function changeTo(index){
+		viedoMove('',index);
+	}
+
+</script>
+</body>
+</html>
